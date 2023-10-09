@@ -27,5 +27,8 @@ let person = {
 // console.log(person["age"]);
 
 person["persons"] = "male..."
-console.log(person);
+// console.log(person);
+
+let newval = person.hobbies;
+console.log(newval)
 
