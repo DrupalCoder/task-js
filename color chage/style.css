@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #output {
+    margin-top: 20px;
+  }
+  
+  .savedText {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  

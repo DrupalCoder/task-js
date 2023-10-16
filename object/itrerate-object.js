@@ -12,4 +12,3 @@ let personNew = {
 for(let key in personNew){
     console.log(personNew[key])
 }
-

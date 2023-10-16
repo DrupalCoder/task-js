@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript: add LI to UL</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        let inputVal = document.getElementById("field-val");
+let btnVal = document.getElementById("btn");
+let ulVal = document.getElementById("list-parent");
+
+
+
+btnVal.addEventListener("click", function(){
+    let inputVal = document.getElementById("field-val").value;
+    let li = document.createElement("li");
+    li.appendChild(inputVal);
+
+    console.log(inputVal);
+
+    
+    
+});
+       
+    </body>
+</html>
