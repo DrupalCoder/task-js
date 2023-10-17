@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .trigger{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(90deg, green, orange);
+        border: unset;
+        color: #fff;
+        font-size: 18px;
+        position: relative;
+        z-index: 99;
+    }
+    .sabval{
+        width: 0%;
+        height: 60px;
+        background: linear-gradient(90deg, green, orange);
+        border: unset;
+        color: red;
+        overflow: hidden;
+        font-size: 20px;
+        border-radius: 50px;
+        text-align: center;
+        padding-top: 35px;
+        font-family: sans-serif;
+        margin-left: -76px;
+        /* padding-left: 50px; */
+        transition: 1s ;
+        /* transition-delay: 1s; */
+    }
+    .sabval.active {
+        width: 20%;
+        font-size: 16px;
+        padding-top: 40px;
+        padding-left: 50px;
+        /* transition: 2s ; */
+        
+        
+    }
+    .cont{
+        display: flex;
+    }
+    
+</style>
+<body>
+    <h1>add class and remove class</h1>
+    <div class="cont">
+        <button class="trigger">click me</button>
+        <div class="sabval">
+            <div style="width: 300px;">this is real website</div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
