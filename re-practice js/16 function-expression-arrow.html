@@ -1,0 +1,53 @@
+<h1 style="text-align: center;">function expression and Arrow</h1>
+
+<script>
+    
+    // function isevne(evne){
+    //     return evne % 2 === 0; 
+    // };
+    // let checkNumber = isevne(9);
+    // console.log(checkNumber);
+
+
+    // srt first index find
+
+    // function fchsrt(anystr){
+    //     return anystr[0];
+    // }
+
+    // console.log(fchsrt("abc"));
+
+
+    // function
+
+    // function chindexarray(myarr,target){
+    //     for(let i = 0; i <myarr.length; i++){
+    //         if(myarr[i] === target){
+    //             return i;
+    //         }
+    //     }
+    // }
+
+    // function expression
+
+    // let chindexarray = function(myarr,target){
+    //     for(let i = 0; i <myarr.length; i++){
+    //         if(myarr[i] === target){
+    //             return i;
+    //         }
+    //     }
+    // }
+
+    // Arrow function 
+
+    let chindexarray = (myarr,target) =>{
+        for(let i = 0; i <myarr.length; i++){
+            if(myarr[i] === target){
+                return i;
+            }
+        }
+    }
+    let myarr = [1,2,3,4,5,6];
+    console.log(chindexarray(myarr, 6));
+   
+</script>

@@ -1,0 +1,62 @@
+<ul>
+    <li>kdjkdfbd</li>
+    <li>12345</li>
+    <li>////...,,,...</li>
+</ul>
+
+<script>
+
+    {
+
+        function fn(element){
+            return element * 2
+        }
+
+
+        let arr = [1, 2, 3, 4, 5];
+        let result = [];
+
+        for(let element of arr){
+            let newval = fn(element);
+            result.push(newval);
+        }
+        console.log(result);
+    }
+
+    {
+        function fn(element){
+            return "<" + element + ">";
+        }
+
+        let arr = [1,2,3,4,5];
+        let result = [];
+
+        for(let element of arr){
+            let newval = fn(element);
+            result.push(newval);
+        }
+        console.log(result);
+
+
+    }
+
+    {
+        function fn(element){
+            return element.innerText
+        }
+
+        let arr = document.querySelectorAll("li");
+        let result = [];
+
+        for(let element of arr){
+            let newval = fn(element);
+            result.push(newval);
+        }
+        console.log(result);
+    }
+
+
+    
+
+
+</script>

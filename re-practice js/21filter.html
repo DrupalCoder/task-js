@@ -1,0 +1,57 @@
+<script>
+
+    {
+        function fn(element) {
+            return element % 2 == 0;
+        }
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let result = [];
+        for (let element of arr) {
+            if (fn(element)) {
+                result.push(element);
+            }
+        }
+        console.log(result);
+    }
+
+    {
+        function fn(element) {
+            return element < 5;
+        }
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let result = [];
+        for (let element of arr) {
+            if (fn(element)) {
+                result.push(element);
+            }
+        }
+        console.log(result);
+    }
+
+    {
+        function fn(element) {
+            return element % 2 == 1;
+        }
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let result = [];
+        for (let element of arr) {
+            if (fn(element)) {
+                result.push(element);
+            }
+        }
+        console.log(result);
+    }
+
+
+    function filter(arr, fn) {
+        let result = [];
+        for (let element of arr) {
+            if (fn(element)) {
+                result.push(element);
+            }
+        }
+        console.log(result);
+    }
+
+
+</script>

@@ -50,7 +50,7 @@ const sumthreenumbers = (no1,no2,no3) => {
 
 
 const isEven = (number) => {
-    return    number % 2 === 0;   
+    return    number % 2 ;   
 }
 
 console.log(isEven(8))

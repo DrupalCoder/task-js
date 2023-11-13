@@ -1,0 +1,38 @@
+<h1 style="text-align: center;">forEach Method</h1>
+
+<script>
+
+    let user = [
+        { firstName: "f1", age: 25, hobbies: ["coding1", "cricket1", "travling1"] },
+        { firstName: "f2", age: 22, hobbies: ["coding2", "cricket2", "travling2"] },
+        { firstName: "f3", age: 20, hobbies: ["coding3", "cricket3", "travling3"] }
+    ];
+
+    // with foreach  
+
+
+    // user.forEach(function(user, index){
+    //     console.log(user.firstName, index)
+    // });
+
+    // for of loop
+
+    // for(let users of user){
+    //     console.log(users.firstName)
+    // }
+
+    // traditional for loop
+
+    // for (let i = 0; i < user.length; i++) {
+    //     console.log(user[i].firstName);
+    // }
+
+
+
+    // forEach with arrow function
+
+    user.forEach( user => {
+        console.log(user.firstName)
+    });
+
+</script>

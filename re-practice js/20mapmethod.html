@@ -1,0 +1,77 @@
+<ul>
+    <li>Hello</li>
+    <li>eOKDLFJLSD</li>
+    <li>====</li>
+</ul>
+
+<script>
+
+
+
+    // {
+    //     function fn(element) {
+    //         return element * 2;
+    //     }
+    //     let arr = [1, 2, 3, 4];
+    //     let result = [];
+    //     for (let element of arr) {
+    //         let newval = fn(element);
+    //         result.push(newval);
+    //     }
+    //     console.log(result);
+    // }
+
+
+
+    // {
+    //     function fn(){
+    //         return "<" + element + ">";
+    //     }
+    //     let arr = ["Hello", "Moin", "World"];
+    //     let result = [];
+    //     for (let element of arr) {
+    //         let newval = fn(element);
+    //             result.push(newval);
+    //     }
+    //     console.log(result);
+    // }
+
+    // {
+    //     //let arr = document.querySelectorAll("li");
+    //     let result = [];
+    //     for (let element of arr) {
+    //         let newval = //element.innerText;
+    //             result.push(newval);
+    //     }
+    //     console.log(result);
+    // }
+
+    function map(arr, fn) {
+        let result = [];
+        for (let element of arr) {
+            let newval = fn(element);
+                result.push(newval);
+        }
+        console.log(result);
+        return result;
+    }
+
+    function double(element)
+    {
+        return element * 2;
+    }
+
+
+    map([1, 2, 3, 4], double);
+
+    map([1, 2, 3, 4], function(element){
+        return element - 10;
+    });
+
+
+    let arr2 = [1,2,3,4];
+    let r = arr2.map(function(element){
+        return element * 10;
+    });
+    console.log(r);
+</script>

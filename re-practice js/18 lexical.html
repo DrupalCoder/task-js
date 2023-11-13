@@ -1,0 +1,23 @@
+<script>
+
+
+    let waqar = "Global";
+    function fn1() {
+        let waqar = "Inside f1";
+        console.log("Hello1 ", waqar);
+
+        function fn2() {
+            let waqar = "Inside f2";
+            console.log("Hello2 ", waqar);
+
+        }
+        fn2();
+        console.log("Hello ", waqar);
+    }
+    console.log("hello3", waqar);
+
+    fn1();
+
+
+
+</script>

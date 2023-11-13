@@ -1,0 +1,23 @@
+<h1 style="text-align: center;">Object Destructure</h1>
+
+<script>
+    
+    let user = {
+        name : "haris",
+        school : "GVT high",
+        rollNumber : 25,
+        hobbies : ["crocket","coding","book reading"],
+        rollNumber : 25
+    }
+    
+    // let username = user.name;
+    // let userschool = user.school;
+    // console.log(username);
+    // console.log(userschool);
+
+    let {name, school,...rest} = user;
+    // console.log(school);
+    console.log(school, rest);
+
+
+</script>

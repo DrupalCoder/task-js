@@ -2,11 +2,32 @@
 
 <script>
 
+// objects reference type  
+// arrays are good but not sufficient 
+// for real world data 
+// objects store key value pairs 
+// objects don't have index
+
+
+let key = "email"
 const person = {
     name : "haris",
     age : 23,
     height : 5.8,
+    "person hobbies" : ["cricket","coding","book reading"]
 }
 
+// person[key] = "abc@gmail.com";
+// console.log(person);
 
+
+for(let key of Object.keys(person)){
+    // console.log(key);
+    console.log(`${key} : ${person[key]}`);
+}
+
+for(let key in person){
+    // console.log(key);
+    console.log(`${key} : ${person[key]}`);
+}
 </script>
