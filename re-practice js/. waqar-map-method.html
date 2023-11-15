@@ -1,19 +1,21 @@
 <ul>
-    <li>Hello</li>
-    <li>eOKDLFJLSD</li>
-    <li>====</li>
+    <li>kdjkdfbd</li>
+    <li>12345</li>
+    <li>////...,,,...</li>
 </ul>
 
 <script>
 
-
-
     // {
+
     //     function fn(element) {
-    //         return element * 2;
+    //         return element * 2
     //     }
-    //     let arr = [1, 2, 3, 4];
+
+
+    //     let arr = [1, 2, 3, 4, 5];
     //     let result = [];
+
     //     for (let element of arr) {
     //         let newval = fn(element);
     //         result.push(newval);
@@ -21,27 +23,34 @@
     //     console.log(result);
     // }
 
-
-
     // {
-    //     function fn(){
+    //     function fn(element) {
     //         return "<" + element + ">";
     //     }
-    //     let arr = ["Hello", "Moin", "World"];
+
+    //     let arr = [1, 2, 3, 4, 5];
     //     let result = [];
+
     //     for (let element of arr) {
     //         let newval = fn(element);
-    //             result.push(newval);
+    //         result.push(newval);
     //     }
     //     console.log(result);
+
+
     // }
 
     // {
-    //     //let arr = document.querySelectorAll("li");
+    //     function fn(element) {
+    //         return element.innerText
+    //     }
+
+    //     let arr = document.querySelectorAll("li");
     //     let result = [];
+
     //     for (let element of arr) {
-    //         let newval = //element.innerText;
-    //             result.push(newval);
+    //         let newval = fn(element);
+    //         result.push(newval);
     //     }
     //     console.log(result);
     // }
@@ -50,28 +59,30 @@
         let result = [];
         for (let element of arr) {
             let newval = fn(element);
-                result.push(newval);
+            result.push(newval);
         }
         console.log(result);
-        return result;
     }
 
-    function double(element)
-    {
+    map([1,2,3,4,5], function(element){
         return element * 2;
+    })
+
+    {
+        let arr = [1, 2, 3, 4];
+        function fn(element) {
+            return element / 2;
+        }
+
+        map(arr, fn);
+
+        map([5, 6, 8, 2, 3], fn);
+        
+        map(arr, function(element){
+            return element+" Is good";
+        });
+
     }
 
 
-    map([1, 2, 3, 4], double);
-
-    map([1, 2, 3, 4], function(element){
-        return element - 10;
-    });
-
-
-    let arr2 = [1,2,3,4];
-    let r = arr2.map(function(element){
-        return element * 10;
-    });
-    console.log(r);
 </script>
