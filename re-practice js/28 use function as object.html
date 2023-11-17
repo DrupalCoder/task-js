@@ -1,0 +1,40 @@
+<button id="one">One</button>
+<script>
+
+    function User(n='', c=1){
+        this.name = n;
+        this.class = c;
+        this.display = function(){
+            console.log(this);
+            console.log(this.name, this.class);
+        }
+        this.display2 = (evt)=>{
+            //prevent right click menu
+            evt.preventDefault();
+            
+            console.log(this);
+            console.log(this.name, this.class);
+        }
+    }
+
+    function Country(name){
+        this.name = name;
+    }
+
+    function City(name){
+        this.name = name;
+    }
+
+    let waqar = new User("waqar", 12);
+    let apple = new Country("Pakistan");
+    let mango = new City("Faisalabad");
+
+    one.addEventListener('click', waqar.display);
+    one.addEventListener('contextmenu', waqar.display2);
+
+    console.log(waqar);
+    console.log(apple);
+    console.log(mango);
+
+
+</script>

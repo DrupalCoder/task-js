@@ -1,0 +1,78 @@
+<button id="one">ONE</button>
+<script>
+
+    let one = document.getElementById("one");
+
+    function ganaGana() {
+        console.log(this);
+        console.log(this.name, " Θ─┬£☺☻♥♦");
+    }
+
+    function kotak(a, b){
+        console.log(a, b);
+        console.log(this, "is kotak");
+    }
+
+    let hugDeMuje = () => {
+        console.log(this.name, "Hug de")
+    }
+
+    var obj = {
+        name: "waqar",
+        sing: ganaGana,
+        hug: hugDeMuje
+    };
+
+    var obj2 = {
+        name: "osama",
+        sing: ganaGana,
+        hug: hugDeMuje.bind(this)
+    };
+
+    var obj3 = {
+        name: "Moin",
+        sing: function() {
+            console.log(this);
+            this.count++;
+            console.log(this.count);
+            // console.log(this.name, " Θ─┬asdfaskdflaksdf");
+        },
+        count: 0,
+    };
+
+    let obj4 = {
+        name: "Fahad",
+        sing: obj3.sing
+    };
+
+
+    //call kotak as obj4
+    kotak.call(obj4, 10, 20);
+    //call with apply
+    kotak.apply(obj4, [10, 20]);
+
+
+
+    function clicky(callback){
+        console.log("clicky");
+        callback();
+    }
+
+    one.addEventListener("click", obj3.sing.bind(obj3));
+
+    one.addEventListener("contextmenu", function(evt){
+        evt.preventDefault();
+        console.log("CLICK");
+        clicky(obj3.sing);
+        clicky(obj3.sing.bind(obj3));
+    });
+
+
+
+
+
+
+
+
+
+</script>

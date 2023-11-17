@@ -1,36 +1,141 @@
 <script>
 
+    // {
+    //     function fn(result, element) {
+    //         return result + element;
+    //     }
+
+    //     let arr = [1, 2, 3, 4, 5]
+    //     let result = 0;
+    //     //sum
+
+    //     for (let element of arr) {
+    //         result = fn(result, element);
+    //     }
+    //     console.log(result)
+    // }
+
+    // {
+
+    //     function fn(result, element) {
+    //         return result + element;
+    //     }
+
+
+    //     let arr = [1, 2, 3, 4, 5]
+    //     let result = 1;
+    //     //multiply
+
+    //     for (let element of arr) {
+    //         result = fn(result, element);
+    //     }
+    //     console.log(result)
+
+    // }
+
+    // {
+
+    //     function fn(result, element) {
+    //         return result + element;
+    //     }
+
+    //     let arr = [1, 2, 3, 4, 5]
+    //     let result = "";
+    //     //concate
+
+    //     for (let element of arr) {
+    //         result = fn(result, element);
+    //     }
+    //     console.log(result);
+
+    // }
+
+
+    // let data = [1,2,3,4,5];
+    // let start = 0;
+
+    // function fn(result, element){
+    //     return result + element;
+    // }
+
+    // function reduce(arr, fn, result) {
+    //     for (let element of arr) {
+    //         result = fn(result, element);
+    //     }
+    //     console.log(result);
+    //     return result;
+    // }
+
+
+    // reduce(data,fn,start);
+
+
+    // reduce([1, 4, 2, 3, 4], function (result, element) {
+    //     return result + element;
+    // }, 0);
+
+    // {
+    //     let user = [
+    //         { Name: "subhan", age: 18, class: 9 },
+    //         { Name: "numan", age: 18, class: 9 }
+    //     ];
+    //     let result = [];
+
+
+    //     function concat(result, user) {
+    //         console.log(user);
+    //         console.log(result);
+
+    //         return result + user;
+    //     }
+
+    //     function reduce(user, fn, result) {
+    //         console.log(user);
+    //         console.log(result);
+    //         for (let users of user) {
+    //             result = fn(result, user)
+    //         }
+    //         return result;
+    //     }
+
+    //     reduce(user, concat, result);
+
+
+
+    // }
+
+
+    // {
+
+    //     let array = [2, 5, 7, 5, 12, 9, 7, 5, 4, 3, 5, 2, 4, 15]
+
+    //     let newArray = array.reduce(function (accumulator, curValue) {
+
+    //         if (accumulator.indexOf(curValue) === -1) {
+
+    //             accumulator.push(curValue)
+
+    //         }
+
+    //         return accumulator
+
+    //     }, [])
+
+    //     console.log(newArray)
+
+    // }
+
     {
-        let arr = [1, 2, 3, 4, 5]
-        let result = 0;
-        //sum
+        let user = [
+            { productID: 1, milk: 1, price: 250 },
+            { productID: 2, iceCream: 2, price: 500 }
+        ];
 
-        for(let element of arr){
-           result = result + element;
-        }
 
-        console.log(result)
+        let finalValue = user.reduce((items, currentValue) => {
+            return items + currentValue.price ;
+        },1);
+
+        console.log(finalValue)
     }
-
-    {
-        let arr = [1, 2, 3, 4, 5]
-        let result = 1;
-        //multiply
-
-        for(let element of arr){
-            result = result * element;
-        }
-        console.log(result)
-
-    }
-
-    {
-        let arr = [1, 2, 3, 4, 5]
-        let result = "";
-        //multiply
-
-        
-
-    }
-
 </script>

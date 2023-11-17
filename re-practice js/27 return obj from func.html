@@ -1,0 +1,23 @@
+<script>
+
+
+    function User(name='', className=1) {
+        return {
+            name: name,
+            class: className,
+            display: function(){
+                console.log("Name is ", this.name, " in class ", this.class);
+            }
+        }
+    }
+
+
+
+    let obj1 = User("Moin", 5);
+    let obj2 = User("Hi", 5);
+    let obj3 = User("bye", 5);
+
+    console.log(obj1);
+    console.log(obj2);
+    console.log(obj3);
+</script>

@@ -1,0 +1,46 @@
+<h1>[1,2,23,12,19,15,35,3,4,5,]</h1>
+
+<script>
+
+    let arr = [1, 12, 22, 23, 19, 15, 35, 3, 4, 5,];
+
+    arr.sort((a, b) => {
+        console.log(b, a, "=>", a - b);
+        return b-a;
+        if (a > b) {
+            return -1;
+        } else if (a < b) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    console.log(arr);
+
+
+    {
+        let school = [
+            { class: "7th", fee: 1000 },
+            { class: "8th", fee: 1500 },
+            { class: "9th", fee: 1800 },
+            { class: "10th", fee: 2000 }
+        ]
+
+
+        // don't change original array
+
+        let highfee = school.slice(0).sort((a, b) => {
+            return b.fee - a.fee;
+        });
+
+        console.log(school);
+        console.log(highfee);
+
+    }
+
+
+    {
+
+    }
+
+</script>
