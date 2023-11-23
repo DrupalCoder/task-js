@@ -1,0 +1,77 @@
+<style>
+    .clock{
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        border: 1px solid black;
+        margin: auto;
+        position: relative;
+    }
+    .sec{
+        width: 190px;
+        height: 5px;
+        background-color: green;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0 0;
+        transform: rotate(10deg);
+        transition: all linear 1s;
+    }
+    .min{
+        width: 150px;
+        height: 5px;
+        background-color: blue;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0 0;
+        /* transition: all linear 1s; */
+
+        transform: rotate(90deg);
+    }
+    .hour{
+        width: 130px;
+        height: 5px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0 0;
+        transform: rotate(240deg);
+        /* transition: all linear 1s; */
+
+    }
+</style>
+<div class="clock">
+    <div class="sec"></div>
+    <div class="min"></div>
+    <div class="hour"></div>
+</div>
+
+<script>
+    let sec = document.querySelector(".sec");
+    let min = document.querySelector(".min");
+    let hour = document.querySelector(".hour");
+
+
+    let s = -90;
+    let m = -90;
+    let h = -90;
+
+    setInterval(()=>{
+        s += 360/60  ;
+        m += 360/3600;
+        h += 360/216000 ;
+        sec.style.transform = "rotate("+s+"deg)";
+        min.style.transform = "rotate("+m+"deg)";
+        hour.style.transform = "rotate("+h+"deg)";
+    }, 1000);
+
+
+
+
+
+    
+
+</script>
