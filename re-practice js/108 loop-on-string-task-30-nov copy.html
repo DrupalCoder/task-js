@@ -1,0 +1,27 @@
+<script>
+
+
+    let string = "Hello world zaman park jab aega imran la lal alalala";
+    let currntStr = "";
+    let array = [];
+
+    for (let i = 0; i <= string.length; i++) {
+        if (string[i] !== " ") {
+            currntStr += string[i];
+        }
+        else if (string[i] == " ") {
+           let newsave =  array.push(currntStr);
+           console.log(newsave)
+            currntStr = ""
+        }
+    }
+    console.log(array);
+
+    let news = "hello world";
+    
+
+
+
+
+
+</script>
