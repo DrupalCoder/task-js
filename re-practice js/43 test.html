@@ -1,0 +1,415 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cropping Tool</title>
+    <style>
+        #canvasContainer {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        #imageCanvas {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="imageInput" accept="image/*">
+    <div id="canvasContainer">
+        <canvas id="imageCanvas"></canvas>
+    </div>
+    <button onclick="cropImage()">Crop Image</button>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const canvasContainer = document.getElementById('canvasContainer');
+        const imageCanvas = document.getElementById('imageCanvas');
+        const ctx = imageCanvas.getContext('2d');
+
+        let image;
+
+        imageInput.addEventListener('change', handleImageSelect);
+
+        function handleImageSelect(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    image = new Image();
+                    image.onload = function () {
+                        drawImage();
+                    };
+                    image.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function drawImage() {
+            const canvasWidth = canvasContainer.offsetWidth;
+            const canvasHeight = canvasContainer.offsetHeight;
+
+            imageCanvas.width = canvasWidth;
+            imageCanvas.height = canvasHeight;
+
+            const scale = Math.min(canvasWidth / image.width, canvasHeight / image.height);
+            const newWidth = image.width * scale;
+            const newHeight = image.height * scale;
+
+            const x = (canvasWidth - newWidth) / 2;
+            const y = (canvasHeight - newHeight) / 2;
+
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+            ctx.drawImage(image, x, y, newWidth, newHeight);
+        }
+
+        function cropImage() {
+            // Add your cropping logic here
+            // For example, you can use ctx.getImageData() to get the cropped pixels
+            // Or use the coordinates to specify the cropping area
+            // Remember to handle the cropped data as needed (save, display, etc.)
+            console.log('Image cropped!');
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cropping Tool</title>
+    <style>
+        #canvasContainer {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        #imageCanvas {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="imageInput" accept="image/*">
+    <div id="canvasContainer">
+        <canvas id="imageCanvas"></canvas>
+    </div>
+    <button onclick="cropImage()">Crop Image</button>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const canvasContainer = document.getElementById('canvasContainer');
+        const imageCanvas = document.getElementById('imageCanvas');
+        const ctx = imageCanvas.getContext('2d');
+
+        let image;
+
+        imageInput.addEventListener('change', handleImageSelect);
+
+        function handleImageSelect(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    image = new Image();
+                    image.onload = function () {
+                        drawImage();
+                    };
+                    image.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function drawImage() {
+            const canvasWidth = canvasContainer.offsetWidth;
+            const canvasHeight = canvasContainer.offsetHeight;
+
+            imageCanvas.width = canvasWidth;
+            imageCanvas.height = canvasHeight;
+
+            const scale = Math.min(canvasWidth / image.width, canvasHeight / image.height);
+            const newWidth = image.width * scale;
+            const newHeight = image.height * scale;
+
+            const x = (canvasWidth - newWidth) / 2;
+            const y = (canvasHeight - newHeight) / 2;
+
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+            ctx.drawImage(image, x, y, newWidth, newHeight);
+        }
+
+        function cropImage() {
+            const cropX = 100; // Change these values based on your cropping requirements
+            const cropY = 100;
+            const cropWidth = 300;
+            const cropHeight = 300;
+
+            const croppedImageData = ctx.getImageData(cropX, cropY, cropWidth, cropHeight);
+
+            // You can now use the croppedImageData as needed (save, display, etc.)
+            console.log('Image cropped!');
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cropping Tool</title>
+    <style>
+        #imageContainer {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        #displayedImage {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="imageInput" accept="image/*">
+    <div id="imageContainer">
+        <img id="displayedImage" alt="Selected Image">
+    </div>
+    <button onclick="cropImage()">Crop Image</button>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const imageContainer = document.getElementById('imageContainer');
+        const displayedImage = document.getElementById('displayedImage');
+
+        let image;
+
+        imageInput.addEventListener('change', handleImageSelect);
+
+        function handleImageSelect(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    image = new Image();
+                    image.onload = function () {
+                        displayImage();
+                    };
+                    image.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function displayImage() {
+            const containerWidth = imageContainer.offsetWidth;
+            const containerHeight = imageContainer.offsetHeight;
+
+            displayedImage.src = image.src;
+            displayedImage.style.width = '100%';
+            displayedImage.style.height = 'auto';
+
+            if (displayedImage.width > containerWidth || displayedImage.height > containerHeight) {
+                const scale = Math.min(containerWidth / displayedImage.width, containerHeight / displayedImage.height);
+                displayedImage.style.width = `${displayedImage.width * scale}px`;
+                displayedImage.style.height = `${displayedImage.height * scale}px`;
+            }
+        }
+
+        function cropImage() {
+            // Add your cropping logic here
+            // For example, you can use the displayedImage dimensions and styles
+            // to determine the visible area and crop accordingly
+            // Remember to handle the cropped data as needed (save, display, etc.)
+            console.log('Image cropped!');
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #canvas-container {
+      position: relative;
+    }
+
+    #canvas {
+      border: 2px solid #000;
+      cursor: crosshair;
+    }
+
+    #crop-button {
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+  <title>Image Cropping Tool</title>
+</head>
+<body>
+  <div id="canvas-container">
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <button id="crop-button" onclick="cropImage()">Crop Image</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    let isDragging = false;
+    let startX, startY, endX, endY;
+
+    const loadImage = () => {
+      const image = new Image();
+      image.src = 'your_image.jpg'; // Replace with the path to your image
+      image.onload = () => {
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      };
+    };
+
+    const startDragging = (event) => {
+      isDragging = true;
+      startX = event.clientX - canvas.getBoundingClientRect().left;
+      startY = event.clientY - canvas.getBoundingClientRect().top;
+    };
+
+    const endDragging = () => {
+      isDragging = false;
+      // Perform cropping or any other action here
+    };
+
+    const drawRect = (x, y, width, height) => {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      loadImage();
+      context.strokeStyle = '#FF0000';
+      context.lineWidth = 2;
+      context.strokeRect(x, y, width, height);
+    };
+
+    const cropImage = () => {
+      // Perform the cropping action here using the selected region
+      // Coordinates: startX, startY, endX, endY
+      console.log('Cropped region:', startX, startY, endX, endY);
+    };
+
+    canvas.addEventListener('mousedown', startDragging);
+    canvas.addEventListener('mousemove', (event) => {
+      if (isDragging) {
+        endX = event.clientX - canvas.getBoundingClientRect().left;
+        endY = event.clientY - canvas.getBoundingClientRect().top;
+        drawRect(startX, startY, endX - startX, endY - startY);
+      }
+    });
+    canvas.addEventListener('mouseup', endDragging);
+    canvas.addEventListener('mouseleave', endDragging);
+
+    loadImage();
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #image-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #crop-box {
+      border: 2px dashed #FF0000;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    #crop-button {
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+  <title>Image Cropping Tool</title>
+</head>
+<body>
+  <div id="image-container">
+    <img id="image" src="your_image.jpg" alt="Your Image">
+    <div id="crop-box"></div>
+  </div>
+  <button id="crop-button" onclick="cropImage()">Crop Image</button>
+
+  <script>
+    const imageContainer = document.getElementById('image-container');
+    const image = document.getElementById('image');
+    const cropBox = document.getElementById('crop-box');
+    let isDragging = false;
+    let startX, startY, endX, endY;
+
+    const startDragging = (event) => {
+      isDragging = true;
+      startX = event.clientX - imageContainer.getBoundingClientRect().left;
+      startY = event.clientY - imageContainer.getBoundingClientRect().top;
+    };
+
+    const endDragging = () => {
+      isDragging = false;
+    };
+
+    const updateCropBox = () => {
+      const width = endX - startX;
+      const height = endY - startY;
+      cropBox.style.width = `${width}px`;
+      cropBox.style.height = `${height}px`;
+      cropBox.style.left = `${startX}px`;
+      cropBox.style.top = `${startY}px`;
+    };
+
+    const cropImage = () => {
+      // Perform the cropping action here using the selected region
+      // Coordinates: startX, startY, endX, endY
+      console.log('Cropped region:', startX, startY, endX, endY);
+    };
+
+    imageContainer.addEventListener('mousedown', startDragging);
+    imageContainer.addEventListener('mousemove', (event) => {
+      if (isDragging) {
+        endX = event.clientX - imageContainer.getBoundingClientRect().left;
+        endY = event.clientY - imageContainer.getBoundingClientRect().top;
+        updateCropBox();
+      }
+    });
+    imageContainer.addEventListener('mouseup', endDragging);
+    imageContainer.addEventListener('mouseleave', endDragging);
+
+    // You can add additional logic to handle image resizing or positioning
+
+  </script>
+</body>
+</html>
