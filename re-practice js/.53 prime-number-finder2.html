@@ -1,0 +1,58 @@
+<script>
+
+
+    /*
+    
+    Changed the loop condition in the outer loop from i <= num.length to i < num.length because array indices start from 0.
+    Introduced a new variable isPrime to keep track of whether the current number is prime or not.
+    Added an inner loop to check if the current number is divisible by any number from 2 to current - 1.
+    If the current number is divisible by any number in the range, set isPrime to false and break out of the inner loop.
+    After the inner loop, check if isPrime is still true and if the current number is greater than 1. If both conditions are met, push the current number to the result_prime_num array.
+    Finally, log the result_prime_num array to the console.
+
+
+
+
+
+    Loop Condition:
+
+    B4 loop went like "i <= num.length," now it's "i < num.length" cuz arrays start at 0.
+    New Variable 'isPrime':
+
+    Added a cool new thing called 'isPrime' to check if a number is a prime or not.
+    Inner Loop Magic:
+
+    Put a loop inside to check if the number is divisible by any number from 2 to 'current - 1'. If yes, then 'isPrime' becomes 'false.'
+    Checking Conditions:
+
+    After the loop, we check if 'isPrime' is still 'true' and if the number is more than 1. If so, it's a prime, so we add it to our 'result_prime_num' list.
+    Logging Result:
+
+    Finally, we log the list of prime numbers ('result_prime_num').
+    So, the code now finds prime numbers in the list and shows them off! If you wanna know anything else, just ask!
+    
+    */
+
+    let num = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    let result_prime_num = [];
+
+    for (let i = 0; i < num.length; i++) {
+        let current = num[i];
+        let isPrime = true;
+        for (let j = 2; j < current; j++) {
+            
+            if (current % j === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime && current > 1) {
+            result_prime_num.push(current);
+        }
+    }
+
+    // console.log(result_prime_num);
+
+
+</script>

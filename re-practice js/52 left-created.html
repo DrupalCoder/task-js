@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 100px;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    #lift #right {
+        width: 48%;
+        height: 100px;
+        border: 1px solid gray;
+        margin: 2px 0;
+        background: darkgrey;
+    }
+
+    #lift #left {
+        width: 48%;
+        height: 100px;
+        border: 1px solid gray;
+        margin: 2px 0;
+        background: darkgrey;
+    }
+
+    #lift {
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+    }
+
+    #lift_door {
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+        position: absolute;
+        bottom: 0%;
+        gap: 0;
+        transition: all linear 1s;
+    }
+
+    #lift_door.open {
+        gap: 90px;
+    }
+
+    #left_door {
+        width: 48%;
+        height: 100px;
+        border: 1px solid gray;
+        margin: 2px 0;
+        background: black;
+    }
+
+    #right_door {
+        width: 48%;
+        height: 100px;
+        border: 1px solid gray;
+        margin: 2px 0;
+        background: black;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div id="lift">
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
+        <div id="lift">
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
+        <div id="lift">
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
+        <div id="lift">
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
+        <div id="lift_door">
+            <div id="left_door"></div>
+            <div id="right_door"></div>
+        </div>
+    </div>
+
+
+    <script>
+
+        // animate(element, { width: "100px" }, { duration: 1000, fill: "both" })
+        //     .then(willAnimate(element, { width: "0px" }, { duration: 1000, fill: "both" }))
+        //     .then(willAnimate(element, { width: "500px" }, { duration: 1000, fill: "both" }))
+        
+        let liftDoor = document.querySelector("#lift_door");
+        let current = 0;
+        liftDoor.style.bottom = (25 * current) + "%";
+        let targets = [3, 1];
+        let going = false;
+
+        setInterval(() => {
+
+            if (!going) {
+                let target = targets[0];
+                if (target === undefined) {
+                    return;
+                }
+
+                going = true;
+
+                let direction = target - current;
+                console.log(direction)
+                //neiche jane
+                let kareeb;
+                let time = 1000;
+                if (direction == 0) {
+                    time = 0;
+                    kareeb = current;
+                } else if (direction < 0) {
+                    kareeb = current - 1;
+                } else {//opar jane k liye
+                    kareeb = current + 1;
+                }
+
+                //after 1 second will reach next floor
+                setTimeout(function () {
+                    current = kareeb;
+                    console.log("GOING TO ", target, " ON floor", current);
+                    let index = targets.indexOf(current);
+                    if (index >= 0) {
+                        targets.splice(index, 1);
+                        console.log("Opening the gate");
+                        //open the gate
+                        setTimeout(() => {
+                            console.log("Gate opened");
+                            console.log("now closing the door");
+                            //close the gate
+                            setTimeout(() => {
+                                console.log("closed");
+                                going = false;
+                            }, 1000)
+                        }, 1000)
+                    } else {
+                        going = false;
+                    }
+                }, 1000);
+
+            }
+
+        }, 100);
+
+
+
+
+
+
+
+
+        function animate(element, keyframes, options) {
+            return new Promise(resolve => {
+                const animation = element.animate(keyframes, options);
+                animation.addEventListener('finish', function () {
+                    resolve(); // Resolve the Promise when the animation is complete
+                });
+            });
+        }
+
+        function willAnimate(element, keyframes, options) {
+            return function () {
+                return animate(element, keyframes, options);
+            }
+        }
+
+
+        /* 
+        
+        janekianimation
+        .pir
+        if (current ho targets me)
+        {
+            yaha par ruk jao
+            .pir
+            gateKolo
+            .pir
+            thori der sabar kro
+            .pir
+            gate band kro
+            .pir
+            to jate jao
+        }else {
+            to jate jao;
+        }
+        
+        */
+
+
+
+
+
+    </script>
+</body>
+
+</html>

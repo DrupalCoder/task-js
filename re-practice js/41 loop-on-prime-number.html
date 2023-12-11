@@ -1,7 +1,7 @@
 <script>
 
 
-    
+
     //Prime number 
     //jo sirf khud par divide ho ya 1 par iska matlb k 1 or khud ko check na kro
 
@@ -22,59 +22,61 @@
     // 3/1, 3/2, 3/3
 
 
-    let n = 7;
-    let isPrime = 'It is prime'; 
-    for(let i=2;i<n;i++)
-    {
-        if(n%i == 0){
-            isPrime = 'It is not prime';
-            break;
-        } 
+    let result = [];
+    for (let n = 2; n < 100; n++) {
+        let isPrime = true;
+        for (let i = 2; i < n; i++) {
+            if (n % i == 0) {
+                isPrime = false;
+                // console.log(n)
+                break;
+            }
+        }
+
+        if(isPrime)
+        {
+            result.push(n);
+        }
     }
-    console.log(isPrime);
 
-
-
-    let day = prompt("enter day");
-    if(day == "friday"){
-        console.log("Juma mubarak");
-    }
-
-
-    /* 
-        if(condition)
-        {
-            // body
-        }
-
-        if(condition)
-            statement;
-
-
-        if(true)
-        {
-            //body run hogi
-        }
-
-        if(false)
-        {
-            //body run nahi hogi
-        }
-
-        if( 0 )
-        {
-
-        }
-
-
-        if(10)
-        {
-            console.log("hello");
-        }
-
-        condition values which are converted as false (0, null, undefined, empty_string, NaN)
-        other values are converted true
-    */
+    /*
+       let day = prompt("enter day");
+       if(day == "friday"){
+           console.log("Juma mubarak");
+       }
+           if(condition)
+           {
+               // body
+           }
+   
+           if(condition)
+               statement;
+   
+   
+           if(true)
+           {
+               //body run hogi
+           }
+   
+           if(false)
+           {
+               //body run nahi hogi
+           }
+   
+           if( 0 )
+           {
+   
+           }
+   
+   
+           if(10)
+           {
+               console.log("hello");
+           }
+   
+           condition values which are converted as false (0, null, undefined, empty_string, NaN)
+           other values are converted true
+       */
 
 
 </script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    #beautiful-list {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #beautiful-list ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #beautiful-list li {
+      padding: 20px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #333;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    #beautiful-list li:hover {
+      background-color: #f9f9f9;
+    }
+
+    #beautiful-list li:last-child {
+      border-bottom: none;
+    }
+
+    .icon {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="beautiful-list">
+  <ul>
+    <li><span class="icon">&#x1F60D;</span> Item 1</li>
+    <li><span class="icon">&#x1F4BB;</span> Item 2</li>
+    <li><span class="icon">&#x1F4E6;</span> Item 3</li>
+    <li><span class="icon">&#x1F680;</span> Item 4</li>
+    <li><span class="icon">&#x1F4A1;</span> Item 5</li>
+  </ul>
+</div>
+
+</body>
+</html>
