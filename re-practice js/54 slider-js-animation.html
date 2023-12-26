@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="slider">
+        <div id="slide_item" class="active">1</div>
+        <div id="slide_item">2</div>
+        <div id="slide_item">3</div>
+        <div id="slide_item">4</div>
+        <div id="slide_item">5</div>
+    </div>
+    <button id="btn">change slide</button>
+
+    <script>
+        let slide = document.getElementById("slide_item");
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {
+            slide.classList.add("active");
+        });
+
+        if (prevNext === "next") {
+            if (active[0].nextElementSibling) {
+                active[0].nextElementSibling.className = "active";
+                active[0].className = "";
+            }
+        } else {
+            if (active[0].previousElementSibling) {
+                active[0].previousElementSibling.className = "active";
+                active[active.length - 1].className = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

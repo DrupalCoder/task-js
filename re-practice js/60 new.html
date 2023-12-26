@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .slides {
+        background-color: lightgray;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cont {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        width: 100px;
+        margin: auto;
+    }
+
+    .shift {
+        position: absolute;
+        left: 0;
+        background-color: rgb(112, 52, 52);
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 1s;
+    }
+
+    .active1 {
+        transform: translate(0px, 0px);
+        transition: all 1s;
+    }
+
+    .active2 {
+        transform: translate(0px, 120px);
+        transition: all 1s;
+    }
+
+    .active3 {
+        transform: translate(0px, 240px);
+        transition: all 1s;
+    }
+
+    .active4 {
+        transform: translate(0px, 360px);
+        transition: all 1s;
+    }
+
+    .btns {
+        width: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: -464px;
+        margin-left: 650px;
+    }
+
+    .btns button {
+        margin-bottom: 60px;
+    }
+</style>
+
+
+<body>
+    <div class="cont">
+        <div class="slides">1</div>
+        <div class="slides">2</div>
+        <div class="slides">3</div>
+        <div class="slides">4</div>
+        <div class="shift">lift door</div>
+    </div>
+    <div class="btns">
+        <button id="btn1">1</button>
+        <button id="btn2">2</button>
+        <button id="btn3">3</button>
+        <button id="btn4">4</button>
+        <button id="call">call</button>
+    </div>
+    <script>
+
+        let shift = document.querySelector(".shift");
+        let body = document.querySelector("body");
+        let btn1 = document.getElementById("btn1");
+        let btn2 = document.getElementById("btn2");
+        let btn3 = document.getElementById("btn3");
+        let btn4 = document.getElementById("btn4");
+        let call = document.getElementById("call");
+
+        btn1.addEventListener("click", function () {
+            shift.classList.add("active1");
+            shift.classList.remove("active2");
+            shift.classList.remove("active3");
+            shift.classList.remove("active4");
+        });
+
+        btn2.addEventListener("click", function () {
+            shift.classList.add("active2");
+            shift.classList.remove("active1");
+            shift.classList.remove("active3");
+            shift.classList.remove("active4")
+        });
+
+        btn3.addEventListener("click", function () {
+            shift.classList.add("active3");
+            shift.classList.remove("active1");
+            shift.classList.remove("active2");
+            shift.classList.remove("active4");
+        });
+
+        btn4.addEventListener("click", function () {
+            shift.classList.add("active4");
+            shift.classList.remove("active1");
+            shift.classList.remove("active2");
+            shift.classList.remove("active3");
+        });
+        
+        call.addEventListener("click",function(){
+            setInterval(one,250)
+        })
+        function one (){
+            body.style.background = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+        }
+
+
+        let back = document.getElementById("back");
+
+    </script>
+</body>
+
+</html>

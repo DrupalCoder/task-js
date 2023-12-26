@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Slider</title>
+    <style>
+        /* Add some basic styling for the slider */
+        .slider-container {
+            width: 60%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="./images/image1.jpg"></div>
+            <div class="slide"><img src="./images/image2.jpg"></div>
+            <div class="slide"><img src="./images/image3.jpg"></div>
+            <div class="slide"><img src="./images/image4.jpg"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slider = document.querySelector('.slider');
+            let counter = 0;
+
+            setInterval(() => {
+                slider.style.transition = 'transform 0.5s ease-in-out';
+                slider.style.transform = `translateX(${-counter * 100}%)`;
+
+                counter++;
+                console.log(counter)
+
+                if (counter === 4) {
+                    setTimeout(() => {
+                        slider.style.transition = 'none';
+                        slider.style.transform = 'translateX(0)';
+                        counter = 1;
+                    }, 1000);
+                }
+            }, 1000);
+        });
+    </script>
+
+    
+
+</body>
+
+</html>

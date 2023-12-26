@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lift.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // lift.js
+    
+    // Define the function to handle lift animation
+    function animateLiftDoor(targets, current, going) {
+        // Your existing code for lift animation goes here
+        // ...
+    
+        // Example: Replace the existing setInterval code with your animation logic
+        setInterval(() => {
+            // Your animation logic
+            // ...
+        }, 100);
+    }
+    
+    // Function to handle animation using Promises
+    function animate(element, keyframes, options) {
+        return new Promise(resolve => {
+            const animation = element.animate(keyframes, options);
+            animation.addEventListener('finish', function () {
+                resolve(); // Resolve the Promise when the animation is complete
+            });
+        });
+    }
+    
+    // Function to create a wrapper for the animate function
+    function willAnimate(element, keyframes, options) {
+        return function () {
+            return animate(element, keyframes, options);
+        };
+    }
+    
+    // Other utility functions or variables related to lift animation can be added here
+    
+    </script>
+</body>
+</html>

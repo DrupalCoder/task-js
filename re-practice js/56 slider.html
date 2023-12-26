@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .sitem.active {
+        font-size: 50px;
+        color: blue;
+        display: block;
+        transition: all linear 1s;
+    }
+
+    .sitem {
+        width: 1000px;
+        display: none;
+        height: 500px;
+        background-position: 50% 50%;
+    }
+
+    #slider {
+        height: 100vh;
+        overflow: hidden;
+    }
+</style>
+
+<body>
+    <div id="slider">
+        <div class="sitem" style="background-image: url('./images/image1.jpg');"></div>
+        <div class="sitem" style="background-image: url('./images/image2.jpg');"></div>
+        <div class="sitem" style="background-image: url('./images/image3.jpg');"></div>
+        <div class="sitem" style="background-image: url('./images/image4.jpg');"></div>
+
+    </div>
+    <div class="btns">
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+    </div>
+    <script>
+        let slides = document.querySelectorAll(".sitem");
+        let nextBtn = document.getElementById("next");
+        let prevBtn = document.getElementById("prev");
+        let count = 0;
+        slide_items();
+
+        function slide_items() {
+            
+            if (count >= slides.length - 1) {
+                count = 0;
+            }
+            else if (count < 0) {
+                count = slides.length - 1;
+            }
+            for (let value of slides) {
+                value.classList.remove("active")
+            }
+
+            slides[count].classList.add("active")
+        }
+
+        nextBtn.addEventListener("click", function () {
+            count++;
+            slide_items();
+
+        });
+        prevBtn.addEventListener("click", function () {
+            count--;
+            slide_items();
+        })
+        setInterval(function () {
+            count++;
+            slide_items()
+        }, 2000)
+
+    </script>
+</body>
+
+</html
